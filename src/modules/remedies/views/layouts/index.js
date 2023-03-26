@@ -23,16 +23,6 @@ const FooterButton = ({ id, image, isActive, onPress }) => {
 }
 
 export default function Navigation(props) {
-  const [activeButton, setActiveButton] = useState('button1')
-
-  const handleButtonPress = (id) => {
-    if (id === activeButton) {
-      setActiveButton(activeButton)
-    } else {
-      setActiveButton(id)
-    }
-  }
-
   const handleViewChange = (viewName) => {
     props.setCurrentView(viewName)
   }
@@ -42,36 +32,36 @@ export default function Navigation(props) {
       <FooterButton
         id="button1"
         image={calendarIcon}
-        isActive={activeButton === 'button1'}
+        isActive={props.activeButton === 'button1'}
         onPress={() => {
-          handleButtonPress('button1')
+          props.handleButtonPress('button1')
           handleViewChange('home')
         }}
       />
       <FooterButton
         id="button2"
         image={healthIcon}
-        isActive={activeButton === 'button2'}
+        isActive={props.activeButton === 'button2'}
         onPress={() => {
-          handleButtonPress('button2')
+          props.handleButtonPress('button2')
           handleViewChange('procedures')
         }}
       />
       <FooterButton
         id="button3"
         image={remedioIcon}
-        isActive={activeButton === 'button3'}
+        isActive={props.activeButton === 'button3'}
         onPress={() => {
-          handleButtonPress('button3')
+          props.handleButtonPress('button3')
           handleViewChange('medicines')
         }}
       />
       <FooterButton
         id="button4"
         image={relogioIcon}
-        isActive={activeButton === 'button4'}
+        isActive={props.activeButton === 'button4'}
         onPress={() => {
-          handleButtonPress('button4')
+          props.handleButtonPress('button4')
           handleViewChange('historic')
         }}
       />

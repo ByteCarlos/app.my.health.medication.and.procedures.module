@@ -43,6 +43,7 @@ export default function Head(props) {
         <TouchableOpacity
           onPress={() => {
             handleViewChange(pageLeft)
+            props.handleButtonPress(buttonLeft)
           }}
         >
           <Image
@@ -53,6 +54,7 @@ export default function Head(props) {
         <TouchableOpacity
           onPress={() => {
             handleViewChange(pageRight)
+            props.handleButtonPress(buttonRight)
           }}
         >
           <Image
