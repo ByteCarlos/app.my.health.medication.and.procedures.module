@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 export const styles = StyleSheet.create({
   containerRemedies: {
     backgroundColor: '#D7E6F1',
-    height: '100%',
+    height: '80%',
     paddingVertical: 50,
     paddingHorizontal: 30,
   },
@@ -94,35 +94,5 @@ export const styles = StyleSheet.create({
   schedulingButtonText: {
     color: '#fff',
     verticalAlign: 'middle',
-  },
-  footerContainer: {
-    padding: 30,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    height: '20%',
-  },
-  footerButton: {
-    width: '25%',
-    borderRadius: 20,
-    margin: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  footerButtonActive: {
-    width: '25%',
-    backgroundColor: '#1E90FF',
-    borderRadius: 20,
-    margin: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  footerButtonImage: {
-    height: 30,
-    width: 30,
-  },
-  footerButtonImageActive: {
-    height: 30,
-    width: 30,
-    tintColor: 'white',
   },
 })
