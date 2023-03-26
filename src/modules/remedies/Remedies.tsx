@@ -20,7 +20,7 @@ export default function Remedies(props: RemediesProps) {
 
   return (
     <View style={styles.container}>
-      <Head />
+      <Head setCurrentView={setCurrentView} currentView={currentView} />
       {currentView === 'home' && <Home />}
       {currentView === 'procedures' && <Procedures />}
       {currentView === 'medicines' && <Medicines />}
