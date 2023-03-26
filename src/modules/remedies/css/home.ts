@@ -94,5 +94,6 @@ export const styles = StyleSheet.create({
   schedulingButtonText: {
     color: '#fff',
     verticalAlign: 'middle',
+    fontWeight: 'bold',
   },
 })
