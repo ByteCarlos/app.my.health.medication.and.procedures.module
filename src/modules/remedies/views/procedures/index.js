@@ -6,7 +6,7 @@ const setaEsquerda = require('../../img/chevron-left.png')
 const setaDireita = require('../../img/chevron-right.png')
 const setaInfo = require('../../img/arrow-info.png')
 
-export default function Main() {
+export default function Procedures() {
   return (
     <View style={styles.proceduresContainer}>
       {/* Tab Navigation */}
