@@ -3,8 +3,8 @@ import { StyleSheet } from 'react-native'
 export const styles = StyleSheet.create({
   proceduresContainer: {
     backgroundColor: '#D7E6F1',
-    height: '80%',
-    paddingVertical: 50,
+    height: '75%',
+    paddingVertical: 0,
     paddingHorizontal: 30,
   },
   navigationProceduresContainer: {

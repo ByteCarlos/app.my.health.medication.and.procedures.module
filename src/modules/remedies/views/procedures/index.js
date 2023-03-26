@@ -9,13 +9,6 @@ const setaInfo = require('../../img/arrow-info.png')
 export default function Procedures() {
   return (
     <View style={styles.proceduresContainer}>
-      {/* Tab Navigation */}
-      <View style={styles.navigationProceduresContainer}>
-        {/* @todo fazer botao */}
-        <Image source={setaEsquerda} style={styles.iconNavigationLeft}></Image>
-        <Image source={setaDireita} style={styles.iconNavigationRight}></Image>
-      </View>
-
       {/* Tab Title */}
       <View style={styles.titleProceduresContainer}>
         <Text style={styles.helloProceduresText}>Procedimentos</Text>

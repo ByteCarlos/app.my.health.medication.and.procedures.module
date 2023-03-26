@@ -8,6 +8,7 @@ import Procedures from './views/procedures'
 import Medicines from './views/medicines'
 import Historic from './views/historic'
 import Navigation from './views/layouts'
+import Head from './views/layouts/head'
 
 type RemediesProps = NativeStackScreenProps<
   RouteParams,
@@ -19,6 +20,7 @@ export default function Remedies(props: RemediesProps) {
 
   return (
     <View style={styles.container}>
+      <Head />
       {currentView === 'home' && <Home />}
       {currentView === 'procedures' && <Procedures />}
       {currentView === 'medicines' && <Medicines />}

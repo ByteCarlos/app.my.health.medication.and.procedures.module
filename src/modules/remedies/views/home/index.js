@@ -21,13 +21,6 @@ const setaInfo = require('../../img/arrow-info.png')
 export default function Home() {
   return (
     <View style={styles.containerRemedies}>
-      {/* Tab Navigation */}
-      <View style={styles.navigationRemediesContainer}>
-        {/* @todo fazer botao */}
-        <Image source={setaEsquerda} style={styles.iconNavigationLeft}></Image>
-        <Image source={setaDireita} style={styles.iconNavigationRight}></Image>
-      </View>
-
       {/* Tab Title */}
       <View style={styles.titleHomeContainer}>
         {/* substituir dps pelo username do user e date atual */}

@@ -9,13 +9,6 @@ const setaInfo = require('../../img/arrow-info.png')
 export default function Historic() {
   return (
     <View style={styles.historicsContainer}>
-      {/* Tab Navigation */}
-      <View style={styles.navigationHistoricsContainer}>
-        {/* @todo fazer botao */}
-        <Image source={setaEsquerda} style={styles.iconNavigationLeft}></Image>
-        <Image source={setaDireita} style={styles.iconNavigationRight}></Image>
-      </View>
-
       {/* Tab Title */}
       <View style={styles.titleHistoricsContainer}>
         <Text style={styles.helloHistoricsText}>Histórico</Text>

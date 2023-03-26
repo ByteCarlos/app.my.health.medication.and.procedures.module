@@ -3,13 +3,9 @@ import { StyleSheet } from 'react-native'
 export const styles = StyleSheet.create({
   containerRemedies: {
     backgroundColor: '#D7E6F1',
-    height: '80%',
-    paddingVertical: 50,
+    height: '75%',
+    paddingVertical: 0,
     paddingHorizontal: 30,
-  },
-  navigationRemediesContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
   },
   helloRemediesText: {
     fontWeight: 'bold',
@@ -20,12 +16,6 @@ export const styles = StyleSheet.create({
   helloRemediesDate: {
     marginTop: 20,
     textAlign: 'center',
-  },
-  iconNavigationLeft: {
-    marginRight: 150,
-  },
-  iconNavigationRight: {
-    marginLeft: 150,
   },
   titleHomeContainer: {
     marginTop: 0,

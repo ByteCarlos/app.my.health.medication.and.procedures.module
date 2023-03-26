@@ -9,13 +9,6 @@ const setaInfo = require('../../img/arrow-info.png')
 export default function Medicines() {
   return (
     <View style={styles.medicinesContainer}>
-      {/* Tab Navigation */}
-      <View style={styles.navigationMedicinesContainer}>
-        {/* @todo fazer botao */}
-        <Image source={setaEsquerda} style={styles.iconNavigationLeft}></Image>
-        <Image source={setaDireita} style={styles.iconNavigationRight}></Image>
-      </View>
-
       {/* Tab Title */}
       <View style={styles.titleMedicinesContainer}>
         <Text style={styles.helloMedicinesText}>Medicamentos</Text>
