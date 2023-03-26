@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, Text, Image, TouchableOpacity, Alert } from 'react-native'
 import { styles } from '../../css/home'
 
 // Set Username
@@ -27,7 +27,7 @@ export default function Home() {
   ]
   const date = new Date()
   const dayOfWeek = daysOfWeek[date.getDay()]
-  const [currentDay, setCurrentDay] = useState(dayOfWeek)
+  const [currentDay, setCurrentDay] = useState('Sunday')
 
   const changeDayCalendar = (day) => {
     if (day === currentDay) {
@@ -57,7 +57,11 @@ export default function Home() {
             <Text style={[styles.tagDay, { opacity: 1 }]}>seg</Text>
           </TouchableOpacity>
         ) : (
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              changeDayCalendar('Monday')
+            }}
+          >
             <Text style={[styles.tagDay, { opacity: 0.5 }]}>seg</Text>
           </TouchableOpacity>
         )}
@@ -71,7 +75,11 @@ export default function Home() {
             <Text style={[styles.tagDay, { opacity: 1 }]}>ter</Text>
           </TouchableOpacity>
         ) : (
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              changeDayCalendar('Tuesday')
+            }}
+          >
             <Text style={[styles.tagDay, { opacity: 0.5 }]}>ter</Text>
           </TouchableOpacity>
         )}
@@ -85,7 +93,11 @@ export default function Home() {
             <Text style={[styles.tagDay, { opacity: 1 }]}>qua</Text>
           </TouchableOpacity>
         ) : (
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              changeDayCalendar('Wednesday')
+            }}
+          >
             <Text style={[styles.tagDay, { opacity: 0.5 }]}>qua</Text>
           </TouchableOpacity>
         )}
@@ -99,7 +111,11 @@ export default function Home() {
             <Text style={[styles.tagDay, { opacity: 1 }]}>quin</Text>
           </TouchableOpacity>
         ) : (
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              changeDayCalendar('Thursday')
+            }}
+          >
             <Text style={[styles.tagDay, { opacity: 0.5 }]}>quin</Text>
           </TouchableOpacity>
         )}
@@ -113,7 +129,11 @@ export default function Home() {
             <Text style={[styles.tagDay, { opacity: 1 }]}>sex</Text>
           </TouchableOpacity>
         ) : (
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              changeDayCalendar('Friday')
+            }}
+          >
             <Text style={[styles.tagDay, { opacity: 0.5 }]}>sex</Text>
           </TouchableOpacity>
         )}
@@ -127,7 +147,11 @@ export default function Home() {
             <Text style={[styles.tagDay, { opacity: 1 }]}>sáb</Text>
           </TouchableOpacity>
         ) : (
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              changeDayCalendar('Saturday')
+            }}
+          >
             <Text style={[styles.tagDay, { opacity: 0.5 }]}>sáb</Text>
           </TouchableOpacity>
         )}
@@ -141,7 +165,11 @@ export default function Home() {
             <Text style={[styles.tagDay, { opacity: 1 }]}>dom</Text>
           </TouchableOpacity>
         ) : (
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              changeDayCalendar('Sunday')
+            }}
+          >
             <Text style={[styles.tagDay, { opacity: 0.5 }]}>dom</Text>
           </TouchableOpacity>
         )}
