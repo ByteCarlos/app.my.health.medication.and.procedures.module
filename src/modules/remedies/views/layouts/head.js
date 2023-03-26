@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { styles } from '../../css/head'
+import handleButtonPress from '.'
 
 const setaEsquerda = require('../../img/chevron-left.png')
 const setaDireita = require('../../img/chevron-right.png')
@@ -8,19 +9,29 @@ const setaDireita = require('../../img/chevron-right.png')
 export default function Head(props) {
   var pageLeft = ''
   var pageRight = ''
+  var buttonLeft = ''
+  var buttonRight = ''
 
   if (props.currentView === 'home') {
     pageLeft = 'home'
     pageRight = 'procedures'
+    buttonLeft = 'button1'
+    buttonRight = 'button2'
   } else if (props.currentView === 'procedures') {
     pageLeft = 'home'
     pageRight = 'medicines'
+    buttonLeft = 'button1'
+    buttonRight = 'button3'
   } else if (props.currentView === 'medicines') {
     pageLeft = 'procedures'
     pageRight = 'historic'
+    buttonLeft = 'button2'
+    buttonRight = 'button4'
   } else if (props.currentView === 'historic') {
     pageLeft = 'medicines'
     pageRight = 'historic'
+    buttonLeft = 'button3'
+    buttonRight = 'button4'
   }
 
   const handleViewChange = (viewName) => {
@@ -32,7 +43,8 @@ export default function Head(props) {
       <View style={styles.navigationRemediesContainer}>
         <TouchableOpacity
           onPress={() => {
-            if (props.currentView) handleViewChange(pageLeft)
+            handleViewChange(pageLeft)
+            handleButtonPress(buttonLeft)
           }}
         >
           <Image
@@ -43,6 +55,7 @@ export default function Head(props) {
         <TouchableOpacity
           onPress={() => {
             handleViewChange(pageRight)
+            handleButtonPress(buttonRight)
           }}
         >
           <Image

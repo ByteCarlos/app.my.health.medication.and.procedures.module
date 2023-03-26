@@ -27,7 +27,7 @@ export default function Navigation(props) {
 
   const handleButtonPress = (id) => {
     if (id === activeButton) {
-      setActiveButton(null)
+      setActiveButton(activeButton)
     } else {
       setActiveButton(id)
     }
