@@ -2,6 +2,18 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { styles } from '../../css/home'
 
+// Set Username
+const username = 'José'
+const hello = 'Olá, ' + username + '!'
+
+// Set Date
+let dataAtual = new Date() // Cria um objeto Date com a data e hora atuais
+let dia = dataAtual.getDate().toString().padStart(2, '0') // Obtém o dia do mês com zero à esquerda se necessário
+let mes = (dataAtual.getMonth() + 1).toString().padStart(2, '0') // Obtém o mês com zero à esquerda se necessário (vale lembrar que o mês começa do zero em JavaScript)
+let ano = dataAtual.getFullYear() // Obtém o ano com quatro dígitos
+let dataFormatada = `${dia}/${mes}/${ano}` // Concatena a data formatada com barras
+const today = dataFormatada
+
 const setaEsquerda = require('../../img/chevron-left.png')
 const setaDireita = require('../../img/chevron-right.png')
 const setaInfo = require('../../img/arrow-info.png')
@@ -19,8 +31,8 @@ export default function Main() {
       {/* Tab Title */}
       <View style={styles.titleHomeContainer}>
         {/* substituir dps pelo username do user e date atual */}
-        <Text style={styles.helloRemediesText}>Olá, José!</Text>
-        <Text style={styles.helloRemediesDate}>19/09/2022</Text>
+        <Text style={styles.helloRemediesText}>{hello}</Text>
+        <Text style={styles.helloRemediesDate}>{today}</Text>
       </View>
 
       {/* Tab Calendar */}
