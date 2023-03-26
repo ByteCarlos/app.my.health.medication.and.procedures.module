@@ -1,7 +1,6 @@
 import React from 'react'
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, Image, TouchableOpacity } from 'react-native'
 import { styles } from '../../css/head'
-import handleButtonPress from '.'
 
 const setaEsquerda = require('../../img/chevron-left.png')
 const setaDireita = require('../../img/chevron-right.png')
@@ -44,7 +43,6 @@ export default function Head(props) {
         <TouchableOpacity
           onPress={() => {
             handleViewChange(pageLeft)
-            handleButtonPress(buttonLeft)
           }}
         >
           <Image
@@ -55,7 +53,6 @@ export default function Head(props) {
         <TouchableOpacity
           onPress={() => {
             handleViewChange(pageRight)
-            handleButtonPress(buttonRight)
           }}
         >
           <Image
