@@ -1,8 +1,5 @@
-import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import React, { useState } from 'react'
 import { View, StyleSheet } from 'react-native'
-import { MyHealthModule } from '../../modules'
-import { RouteParams } from '../../routeParams'
 import Home from './views/home'
 import Procedures from './views/procedures'
 import Medicines from './views/medicines'

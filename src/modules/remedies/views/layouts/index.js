@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { View, Image, TouchableOpacity } from 'react-native'
 import { styles } from '../../css/footer'
 const calendarIcon = require('../../img/calendar-icon.png')

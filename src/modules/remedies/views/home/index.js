@@ -1,4 +1,4 @@
-import { NativeStackScreenProps } from '@react-navigation/native-stack'
+import React, { useState } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { styles } from '../../css/home'
 
@@ -13,12 +13,30 @@ let mes = (dataAtual.getMonth() + 1).toString().padStart(2, '0') // Obtém o mê
 let ano = dataAtual.getFullYear() // Obtém o ano com quatro dígitos
 let dataFormatada = `${dia}/${mes}/${ano}` // Concatena a data formatada com barras
 const today = dataFormatada
-
-const setaEsquerda = require('../../img/chevron-left.png')
-const setaDireita = require('../../img/chevron-right.png')
 const setaInfo = require('../../img/arrow-info.png')
 
 export default function Home() {
+  const daysOfWeek = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ]
+  const date = new Date()
+  const dayOfWeek = daysOfWeek[date.getDay()]
+  const [currentDay, setCurrentDay] = useState(dayOfWeek)
+
+  const changeDayCalendar = (day) => {
+    if (day === currentDay) {
+      setCurrentDay(currentDay)
+    } else {
+      setCurrentDay(day)
+    }
+  }
+
   return (
     <View style={styles.containerRemedies}>
       {/* Tab Title */}
@@ -30,13 +48,103 @@ export default function Home() {
 
       {/* Tab Calendar */}
       <View style={styles.containerDay}>
-        <Text style={[styles.tagDay, { opacity: 0.5 }]}>seg</Text>
-        <Text style={[styles.tagDay, { opacity: 0.5 }]}>ter</Text>
-        <Text style={[styles.tagDay, { opacity: 0.5 }]}>qua</Text>
-        <Text style={[styles.tagDay, { opacity: 0.5 }]}>qui</Text>
-        <Text style={[styles.tagDay, { opacity: 0.5 }]}>sex</Text>
-        <Text style={[styles.tagDay, { opacity: 0.5 }]}>sáb</Text>
-        <Text style={[styles.tagDay, { opacity: 0.5 }]}>dom</Text>
+        {currentDay === 'Monday' ? (
+          <TouchableOpacity
+            onPress={() => {
+              changeDayCalendar('Monday')
+            }}
+          >
+            <Text style={[styles.tagDay, { opacity: 1 }]}>seg</Text>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity>
+            <Text style={[styles.tagDay, { opacity: 0.5 }]}>seg</Text>
+          </TouchableOpacity>
+        )}
+
+        {currentDay === 'Tuesday' ? (
+          <TouchableOpacity
+            onPress={() => {
+              changeDayCalendar('Tuesday')
+            }}
+          >
+            <Text style={[styles.tagDay, { opacity: 1 }]}>ter</Text>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity>
+            <Text style={[styles.tagDay, { opacity: 0.5 }]}>ter</Text>
+          </TouchableOpacity>
+        )}
+
+        {currentDay === 'Wednesday' ? (
+          <TouchableOpacity
+            onPress={() => {
+              changeDayCalendar('Wednesday')
+            }}
+          >
+            <Text style={[styles.tagDay, { opacity: 1 }]}>qua</Text>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity>
+            <Text style={[styles.tagDay, { opacity: 0.5 }]}>qua</Text>
+          </TouchableOpacity>
+        )}
+
+        {currentDay === 'Thursday' ? (
+          <TouchableOpacity
+            onPress={() => {
+              changeDayCalendar('Thursday')
+            }}
+          >
+            <Text style={[styles.tagDay, { opacity: 1 }]}>quin</Text>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity>
+            <Text style={[styles.tagDay, { opacity: 0.5 }]}>quin</Text>
+          </TouchableOpacity>
+        )}
+
+        {currentDay === 'Friday' ? (
+          <TouchableOpacity
+            onPress={() => {
+              changeDayCalendar('Friday')
+            }}
+          >
+            <Text style={[styles.tagDay, { opacity: 1 }]}>sex</Text>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity>
+            <Text style={[styles.tagDay, { opacity: 0.5 }]}>sex</Text>
+          </TouchableOpacity>
+        )}
+
+        {currentDay === 'Saturday' ? (
+          <TouchableOpacity
+            onPress={() => {
+              changeDayCalendar('Saturday')
+            }}
+          >
+            <Text style={[styles.tagDay, { opacity: 1 }]}>sáb</Text>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity>
+            <Text style={[styles.tagDay, { opacity: 0.5 }]}>sáb</Text>
+          </TouchableOpacity>
+        )}
+
+        {currentDay === 'Sunday' ? (
+          <TouchableOpacity
+            onPress={() => {
+              changeDayCalendar('Sunday')
+            }}
+          >
+            <Text style={[styles.tagDay, { opacity: 1 }]}>dom</Text>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity>
+            <Text style={[styles.tagDay, { opacity: 0.5 }]}>dom</Text>
+          </TouchableOpacity>
+        )}
       </View>
 
       {/* Tab Calendar content @todo substituir com info do DB */}
