@@ -27,7 +27,7 @@ export default function Home() {
   ]
   const date = new Date()
   const dayOfWeek = daysOfWeek[date.getDay()]
-  const [currentDay, setCurrentDay] = useState('Sunday')
+  const [currentDay, setCurrentDay] = useState(dayOfWeek)
 
   const changeDayCalendar = (day) => {
     if (day === currentDay) {
