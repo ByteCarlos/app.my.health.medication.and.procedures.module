@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Text, Image, TouchableOpacity, Alert } from 'react-native'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { styles } from '../../css/home'
 import SchedulingModal from '../form/schedule'
-import ShedulingInfo from '../info/schedule'
+import Popup from '../info/schedule'
 
 // Set Username
 const username = 'José'
@@ -41,22 +42,25 @@ export default function Home() {
 
   const [showModal, setShowModal] = useState(false)
 
-  // @todo Trocar por um solução dinâmica
-  const [showInfo1, setShowInfo1] = useState(false)
-  const [showInfo2, setShowInfo2] = useState(false)
-  const [showInfo3, setShowInfo3] = useState(false)
-  const handleInfo1 = () => {
-    setShowInfo1(true)
-  }
-  const handleInfo2 = () => {
-    setShowInfo2(true)
-  }
-  const handleInfo3 = () => {
-    setShowInfo3(true)
-  }
-
   const handlePress = () => {
     setShowModal(true)
+  }
+
+  const [data, setData] = useState(null)
+  const [popupVisible, setPopupVisible] = useState(false)
+
+  useEffect(() => {
+    AsyncStorage.getItem('@meuapp_dados').then((storedData) => {
+      setData(JSON.parse(storedData))
+    })
+  }, [])
+
+  const handleOpenPopup = () => {
+    setPopupVisible(true)
+  }
+
+  const handleClosePopup = () => {
+    setPopupVisible(false)
   }
 
   return (
@@ -202,40 +206,55 @@ export default function Home() {
         <View style={styles.containerInfoDay}>
           <Text style={styles.infoDayHour}>8:00</Text>
           <Text style={styles.infoDayText}>Tomar insulina</Text>
-          <TouchableOpacity style={styles.infoDayButton} onPress={handleInfo1}>
+          <TouchableOpacity
+            style={styles.infoDayButton}
+            onPress={handleOpenPopup}
+          >
             <Image source={setaInfo} style={styles.infoDayButtonText}></Image>
           </TouchableOpacity>
-          <ShedulingInfo
-            visible={showInfo1}
-            data={{ hour: '8:00', description: 'Tomar insulina' }}
-            onClose={() => setShowInfo1(false)}
-          />
+          {data && (
+            <Popup
+              visible={popupVisible}
+              onClose={handleClosePopup}
+              data={data}
+            />
+          )}
         </View>
 
         <View style={styles.containerInfoDay}>
           <Text style={styles.infoDayHour}>15:00</Text>
           <Text style={styles.infoDayText}>Exame de Rotina</Text>
-          <TouchableOpacity style={styles.infoDayButton} onPress={handleInfo2}>
+          <TouchableOpacity
+            style={styles.infoDayButton}
+            onPress={handleOpenPopup}
+          >
             <Image source={setaInfo} style={styles.infoDayButtonText}></Image>
           </TouchableOpacity>
-          <ShedulingInfo
-            visible={showInfo2}
-            data={{ hour: '15:00', description: 'Exame de Rotina' }}
-            onClose={() => setShowInfo2(false)}
-          />
+          {data && (
+            <Popup
+              visible={popupVisible}
+              onClose={handleClosePopup}
+              data={data}
+            />
+          )}
         </View>
 
         <View style={styles.containerInfoDay}>
           <Text style={styles.infoDayHour}>21:30</Text>
           <Text style={styles.infoDayText}>Exame Urinário</Text>
-          <TouchableOpacity style={styles.infoDayButton} onPress={handleInfo3}>
+          <TouchableOpacity
+            style={styles.infoDayButton}
+            onPress={handleOpenPopup}
+          >
             <Image source={setaInfo} style={styles.infoDayButtonText}></Image>
           </TouchableOpacity>
-          <ShedulingInfo
-            visible={showInfo3}
-            data={{ hour: '21:30', description: 'Exame Urinário' }}
-            onClose={() => setShowInfo3(false)}
-          />
+          {data && (
+            <Popup
+              visible={popupVisible}
+              onClose={handleClosePopup}
+              data={data}
+            />
+          )}
         </View>
       </View>
 
