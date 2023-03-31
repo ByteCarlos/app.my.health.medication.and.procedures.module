@@ -8,8 +8,6 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native'
 import { Picker } from '@react-native-picker/picker'
-import DateInput from '../DateInput'
-import TimeInput from '../TimeInput'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { styles } from '../../../css/form/schedule'
 
@@ -38,6 +36,70 @@ const SchedulingModal = ({ visible, onClose }) => {
   const [horario, setHorario] = useState('')
   const [periodo, setPeriodo] = useState('')
 
+  const handleDataInicioTextChange = (text) => {
+    // Remove caracteres que não são números
+    const cleanedValue = text.replace(/[^0-9]/g, '')
+
+    // Verifica se o valor segue o formato dd/mm/aaaa
+    if (cleanedValue.length <= 2) {
+      setDtInicio(cleanedValue)
+    } else if (cleanedValue.length <= 4) {
+      setDtInicio(`${cleanedValue.slice(0, 2)}/${cleanedValue.slice(2)}`)
+    } else if (cleanedValue.length <= 8) {
+      setDtInicio(
+        `${cleanedValue.slice(0, 2)}/${cleanedValue.slice(
+          2,
+          4
+        )}/${cleanedValue.slice(4)}`
+      )
+    } else {
+      setDtInicio(
+        `${cleanedValue.slice(0, 2)}/${cleanedValue.slice(
+          2,
+          4
+        )}/${cleanedValue.slice(4, 8)}`
+      )
+    }
+  }
+
+  const handleDataFinalTextChange = (text) => {
+    // Remove caracteres que não são números
+    const cleanedValue = text.replace(/[^0-9]/g, '')
+
+    // Verifica se o valor segue o formato dd/mm/aaaa
+    if (cleanedValue.length <= 2) {
+      setDtFinal(cleanedValue)
+    } else if (cleanedValue.length <= 4) {
+      setDtFinal(`${cleanedValue.slice(0, 2)}/${cleanedValue.slice(2)}`)
+    } else if (cleanedValue.length <= 8) {
+      setDtFinal(
+        `${cleanedValue.slice(0, 2)}/${cleanedValue.slice(
+          2,
+          4
+        )}/${cleanedValue.slice(4)}`
+      )
+    } else {
+      setDtFinal(
+        `${cleanedValue.slice(0, 2)}/${cleanedValue.slice(
+          2,
+          4
+        )}/${cleanedValue.slice(4, 8)}`
+      )
+    }
+  }
+
+  const handleTimeTextChange = (text) => {
+    // Remove caracteres que não são números
+    const cleanedValue = text.replace(/[^0-9]/g, '')
+
+    // Verifica se o valor segue o formato __:__
+    if (cleanedValue.length <= 2) {
+      setHorario(cleanedValue)
+    } else {
+      setHorario(`${cleanedValue.slice(0, 2)}:${cleanedValue.slice(2)}`)
+    }
+  }
+
   return (
     <Modal visible={visible} animationType="fade" transparent>
       <View style={styles.modalContainer}>
@@ -49,16 +111,40 @@ const SchedulingModal = ({ visible, onClose }) => {
             onChangeText={setDescricao}
           />
           <View style={styles.input}>
-            <DateInput
-              placeholder={'Data de início'}
-              onChangeText={setDtInicio}
+            <TextInput
+              maxLength={10}
+              placeholder="Data de início"
+              keyboardType="numeric"
+              onChangeText={(text) => {
+                handleDataInicioTextChange(text)
+                setDtInicio
+              }}
+              value={dtInicio}
             />
           </View>
           <View style={styles.input}>
-            <DateInput placeholder={'Data de fim'} onChangeText={setDtFinal} />
+            <TextInput
+              maxLength={10}
+              placeholder="Data de fim"
+              keyboardType="numeric"
+              onChangeText={(text) => {
+                handleDataFinalTextChange(text)
+                setDtFinal
+              }}
+              value={dtFinal}
+            />
           </View>
           <View style={styles.input}>
-            <TimeInput placeholder={'Horário'} onChangeText={setHorario} />
+            <TextInput
+              maxLength={5}
+              placeholder="Horário"
+              keyboardType="numeric"
+              onChangeText={(text) => {
+                handleTimeTextChange(text)
+                setHorario
+              }}
+              value={horario}
+            />
           </View>
           <View style={styles.input}>
             <Picker
