@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { View, Text, Image, TouchableOpacity, Alert } from 'react-native'
 import { styles } from '../../css/home'
+import SchedulingModal from '../form/schedule'
 
 // Set Username
 const username = 'José'
@@ -35,6 +36,12 @@ export default function Home() {
     } else {
       setCurrentDay(day)
     }
+  }
+
+  const [showModal, setShowModal] = useState(false)
+
+  const handlePress = () => {
+    setShowModal(true)
   }
 
   return (
@@ -205,10 +212,14 @@ export default function Home() {
       {/* Tab Actions Buttons */}
 
       <View style={styles.containerSchedulingButton}>
-        <TouchableOpacity style={styles.schedulingButton}>
+        <TouchableOpacity style={styles.schedulingButton} onPress={handlePress}>
           <Text style={styles.schedulingButtonText}>Novo Agendamento</Text>
         </TouchableOpacity>
       </View>
+      <SchedulingModal
+        visible={showModal}
+        onClose={() => setShowModal(false)}
+      />
     </View>
   )
 }
