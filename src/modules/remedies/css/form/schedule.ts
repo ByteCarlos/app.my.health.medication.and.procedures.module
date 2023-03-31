@@ -30,13 +30,14 @@ export const styles = StyleSheet.create({
   containerSchedulingButton: {
     width: '100%',
     alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   schedulingButton: {
-    justifyContent: 'center',
     backgroundColor: '#1E90FF',
-    width: '80%',
-    padding: 20,
-    margin: 20,
+    width: '40%',
+    padding: 10,
+    marginHorizontal: 10,
     borderRadius: 20,
   },
   schedulingButtonText: {
