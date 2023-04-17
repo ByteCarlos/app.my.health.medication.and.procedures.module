@@ -2,7 +2,7 @@
 This is Une Manage, a web system developed in Laravel to manage academic projects in an efficient and practical way. With Une Manage, users can create and manage academic projects, define tasks and deadlines, assign team members and track the progress of each project.
 
 ### Copyright
-This web system was developed by [your name], in [year of development], and is under copyright. Any unauthorized copying, reproduction or distribution of this software is strictly prohibited.
+This web system was developed me, in 2023, and is under copyright. Any unauthorized copying, reproduction or distribution of this software is strictly prohibited.
 
 ### Installation
 To install Une Manage, follow the instructions below:
