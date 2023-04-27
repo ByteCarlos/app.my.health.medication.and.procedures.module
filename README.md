@@ -1,19 +1,32 @@
-# My Health Medications and Procedures Module
+# Une Manage - Academic Project Manager
+This is Une Manage, a web system developed in Laravel to manage academic projects in an efficient and practical way. With Une Manage, users can create and manage academic projects, define tasks and deadlines, assign team members and track the progress of each project.
 
-This module was developed for the My Health app with the purpose of allowing users to store and access information about medications and health procedures. The module offers features to add, edit and delete medications and procedures, as well as to set reminders for medication administration.
+### Copyright
+This web system was developed me, in 2023, and is under copyright. Any unauthorized copying, reproduction or distribution of this software is strictly prohibited.
 
-## Copyright
+### Installation
+To install Une Manage, follow the instructions below:
 
-This module was developed by My Health Team and is his intellectual property. All copyrights are reserved to him. The use of this module is restricted to the My Health app, and any reproduction or distribution without the express authorization of the owner is prohibited.
+- Clone the repository to your computer.
+- Open the terminal and navigate to the root folder of the project.
+- Run composer install command to install project dependencies.
+- Create an .env file from the .env.example file and set the database and server environment variables.
+- Run the php artisan key:generate command to generate the application's encryption key.
+- Run the php artisan migrate command to create the database tables.
+- Run the php artisan db:seed command to populate the database with test data (optional).
+- Run the command php artisan serve to start the server.
 
-## Disclaimer
+### Usage
+- To use Une Manage, access the server URL and login with your user credentials. After logging in, you will be directed to the main page of the system, where you can create and manage academic projects.
 
-This module is provided "as is" and there is no warranty of fitness for any particular purpose. The owner is not responsible for any direct or indirect damage arising from the use of the module.
+### Contribution
+If you want to contribute to the development of Une Manage, follow the instructions below:
 
-## Contact
-
-For additional information about the My Health medications and procedures module, please contact the owner at carlos.henrique@dcomp.ufs.br. 
-
-### Tags
-
-#medications #procedures #health #app #reminders #myhealth #carlossilveira
+- Fork the repository.
+- Clone your fork to your computer.
+- Create a branch with the name of your feature or fix.
+- Deploy the changes to your branch.
+- Run the tests to make sure the changes didn't affect other functionality.
+- Commit your changes.
+- Push your branch to your fork.
+- Open a pull request to the main branch of the original repository.
